@@ -287,10 +287,10 @@ with tab1:
                             f.write(uploaded_file.getbuffer())
 
                         result = analyze_outfit(temp_path, style)
-if result is None:
-    st.error("❌ AI returned empty response. Please try again!")
-    st.stop()
-suggestion_text, image_prompt = result
+                        if result is None:
+                            st.error("❌ AI returned empty response. Please try again!")
+                            st.stop()
+                        suggestion_text, image_prompt = result
                         st.session_state.suggestion_text = suggestion_text
                         st.session_state.image_prompt = image_prompt
                         st.session_state.try_count += 1
